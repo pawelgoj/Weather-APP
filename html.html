@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather  App</title>
+    <script src="https://kit.fontawesome.com/d1febbd466.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <link rel ="stylesheet" href="css.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1>Weather</h1>
+        <div class="frame">
+            <div class="left">
+                <div class="main-info">
+                        <h3><span class="city-name"></span><span>,  </span><span class="country">ex</span></h3>
+                        <p class="clock"></p>
+                        <input type="text" placeholder="Write city name..."><button class="button1">Send</button>
+                        <p class="warning"></p>
+                        <p class="headings">Weather:</p>
+                        <img src="" alt="" class="picture">
+                        <p class="weather weather-info-weather"></p>
+                </div>
+            </div>
+            <div class="right">
+                <div>
+                    <p class="headings">Temperature:</p>
+                    <div class="weather-info">
+                        <span class="temp"></span>
+                        <span><button class="button-change-units">F</button></span>
+                    </div>
+                    <p class="headings" >Humidity:</p>
+                    <p class="humidity weather-info"></p>
+                </div>
+                <button class="button-more-data"><span>More data </span><i class=" icon fas fa-arrow-alt-circle-down"></i></button>
+            </div>
+            <div class = "hide more-data">
+                <p class="headings anim" >feels like:</p>
+                <p class="feels-like more-info anim"></p>
+                <p class="headings anim" >pressure:</p>
+                <p class="pressure more-info anim"></p>
+                <p class="headings anim" >Max temperature:</p>
+                <p class="max-temperature more-info anim"></p>
+                <p class="headings anim" >Min temperature:</p>
+                <p class="min-temperature more-info anim"></p>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script</script>
+</body>
+</html>
