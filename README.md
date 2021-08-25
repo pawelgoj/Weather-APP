@@ -2,7 +2,7 @@
 
 ## Description 
 
-Weather web widget using openweather API: https://openweathermap.org/api
+Web weather web widget using openweather API: https://openweathermap.org/api
 
 ## Usage 
 
