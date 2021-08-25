@@ -8,7 +8,7 @@ Weather web widget using openweather API: https://openweathermap.org/api
 
 - Get api key for https://openweathermap.org/api or adjust the app for another API.
 
-- If you use the openweather API, you paste your api key in the appropriate place in the scrit.js file:
+- If you use the openweather API, you paste your api key in the appropriate place in the script.js file:
 
 ```js
 /* insert your api key for openweathermap */
