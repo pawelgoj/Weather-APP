@@ -8,11 +8,10 @@ Weather APP is web widget using openweather API: https://openweathermap.org/api
 
 - Get api key for https://openweathermap.org/api or adjust the app for another API.
 
-- If you use the openweather API, you paste your api key in the appropriate place in the script.js file:
+- If you use the openweather API, you paste your api key in the appropriate place in the key.env file:
 
-```js
-/* insert your api key for openweathermap */
-const apiKey = '&appid=........................';
+```
+API_KEY=...................;
 ```
 ## Technologies/Tools 
 

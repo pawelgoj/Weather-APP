@@ -1,6 +1,12 @@
 /* insert your api key for openweathermap */
 
-const apiKey = '&appid=.........................';
+let file = "key.env";
+
+fetch(file)
+    .then(file => file.text())
+    .then(key => { key = key.replace('API_KEY=', '');
+
+const apiKey = `&appid=${key}`;
 
 //Api links 
 const apiLink = 'https://api.openweathermap.org/data/2.5/weather?';
@@ -242,3 +248,4 @@ const show_more_Data = () => {
 
 moreDataButton.addEventListener('click', show_more_Data);
 
+    });
