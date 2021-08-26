@@ -1,5 +1,6 @@
 /* insert your api key for openweathermap */
-const apiKey = '&appid=........................';
+
+const apiKey = '&appid=.........................';
 
 //Api links 
 const apiLink = 'https://api.openweathermap.org/data/2.5/weather?';
@@ -42,11 +43,15 @@ let geo = false;
 let city;
 let url = '';
 
+let timeZoneUser = 0;
+let timeZone = 0;
+
 //Get information from API
 const getWeather = (url,  geo) => {
     if  (!input.value && geo === false) {
         city = 'London'
         url = apiLink + parameterForCityName + city + apiKey + units;
+        timeZoneUser = 3600;
     } else if(!input.value && geo === true) {
 
     } else {
@@ -62,7 +67,11 @@ const getWeather = (url,  geo) => {
             const press = Math.round(res.data.main.pressure);
             const minT = Math.round(res.data.main.temp_min);
             const maxT = Math.round(res.data.main.temp_max);
-            const status = Object.assign({}, ...res.data.weather)
+            const status = Object.assign({}, ...res.data.weather);
+            if  (!input.value && geo === true) {
+                timeZoneUser = res.data.timezone;
+            };
+            timeZone = res.data.timezone;
 
             cityName.textContent = res.data.name;
             country.textContent = res.data.sys.country;
@@ -145,7 +154,8 @@ const enterCheck = () => {
     };
 };
 
-geolocation.getGeoLocationOfUser(apiLink, lat, lon, apiKey, units);
+//geolocation.getGeoLocationOfUser(apiLink, lat, lon, apiKey, units);
+setTimeout(() => geolocation.getGeoLocationOfUser(apiLink, lat, lon, apiKey, units), 800);
 
 
 //Send new city 
@@ -157,11 +167,18 @@ input.addEventListener('keyup', enterCheck);
 let dateString;
 
 const clockTime = () => {
-    const time = Date.now();
+    let time = Date.now();
+    time = time + (timeZone * 1000 - timeZoneUser * 1000);
+
     date = new Date(time);
-    let minutes
+    let minutes;
     (date.getMinutes().toString().length === 2) ? minutes = date.getMinutes() : minutes = '0' + date.getMinutes();
     dateString = date.getDate() + '.' + date.getMonth() + '.' + date.getFullYear() + ' ' + date.getHours() + ':' + minutes;
+    
+    if (timeZone != timeZoneUser) {
+        dateString = 'local time: ' + dateString;
+    }
+
     clock.textContent = dateString;
 };
 
