@@ -18,9 +18,9 @@ API_KEY=...................;
 - Java Script
 - HTML
 - CSS
-- Axios
+- Axios https://github.com/axios/axios
 - Openweather API https://openweathermap.org/api
-- Google fonts
+- Google fonts https://fonts.google.com/
 - fontawesome https://fontawesome.com
 
 ![Weather APP](chrome_app.png)
