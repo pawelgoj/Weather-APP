@@ -67,6 +67,7 @@ const getWeather = (url,  geo) => {
     
     axios.get(url)
         .then (res => {
+            console.log(res);
             temp = Math.round(res.data.main.temp);
             const hum = Math.round(res.data.main.humidity);
             const fileLike = Math.round(res.data.main.feels_like);
@@ -106,7 +107,9 @@ const getWeather = (url,  geo) => {
                 picture.setAttribute("src","WeatherApp grafiki/fog.png" );
             } else if (id == 800) {
                 picture.setAttribute("src","WeatherApp grafiki/sun.png" );
-            } else if (id > 800 && id < 900) {
+            } else if (id >800 && id < 803) {
+                picture.setAttribute("src","WeatherApp grafiki/some_clouds.png");                
+            } else if (id >= 803 && id < 900) {
                 picture.setAttribute("src","WeatherApp grafiki/cloud.png" );
             } else {
                 picture.setAttribute("src","WeatherApp grafiki/unknown.png" );
