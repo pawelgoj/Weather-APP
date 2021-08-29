@@ -1,5 +1,3 @@
-/* insert your api key for openweathermap */
-
 let file = "key.env";
 
 fetch(file)
