@@ -32,6 +32,8 @@ const maxTemperature = document.querySelector('.max-temperature');
 const minTemperature = document.querySelector('.min-temperature');
 const icon = document.querySelector('.icon');
 const anim = document.querySelectorAll('.anim');
+const displayWindDirection = document.querySelector("p[name='wind-direction']");
+const displayWindSpeed = document.querySelector("p[name='wind-speed']");
 
 let fahrenheit = false;
 let temp;
@@ -50,6 +52,11 @@ let url = '';
 let timeZoneUser = 0;
 let timeZone = 0;
 
+const rotateArrow = (wind) => {
+    const arrow = document.querySelector('.arrow');
+    arrow.style.transform = `rotate(${wind}deg)`;
+}
+
 //Get information from API
 const getWeather = (url,  geo) => {
     if  (!input.value && geo === false) {
@@ -65,7 +72,6 @@ const getWeather = (url,  geo) => {
     
     axios.get(url)
         .then (res => {
-            console.log(res);
             temp = Math.round(res.data.main.temp);
             const hum = Math.round(res.data.main.humidity);
             const fileLike = Math.round(res.data.main.feels_like);
@@ -73,6 +79,7 @@ const getWeather = (url,  geo) => {
             const minT = Math.round(res.data.main.temp_min);
             const maxT = Math.round(res.data.main.temp_max);
             const status = Object.assign({}, ...res.data.weather);
+            const wind = res.data.wind.deg;
             if  (!input.value && geo === true) {
                 timeZoneUser = res.data.timezone;
             };
@@ -87,6 +94,11 @@ const getWeather = (url,  geo) => {
             pressure.textContent = press + ' hPa';
             maxTemperature.textContent = maxT + ' °C';
             minTemperature.textContent = minT + ' °C';
+
+            displayWindDirection.textContent = wind + ' °';
+            displayWindSpeed.textContent = res.data.wind.speed + ' m/s';
+
+            rotateArrow(wind);
 
             warning.textContent = '';
             input.value ='';

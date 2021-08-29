@@ -33,14 +33,18 @@ body {
     align-items: center;  
 }
 
-.left, .right {
+.left, .right, .left-more-data {
     display: inline;
     padding: 10px;
-    float:left;
+    float: left;
 }
 
 .right {
     width: 250px;
+}
+
+.left-more-data {
+    margin-right: 100px;
 }
 
 .main-info {
@@ -122,6 +126,7 @@ button:hover {
     font-weight: bold;
     text-align: left;
     padding-bottom: 10px;
+
 }
 
 .picture {
@@ -129,6 +134,36 @@ button:hover {
     display: block;
     width: 140px;
     height: 140px;
+}
+
+.Weather-vane-holder {
+    float: left;
+    display: block;
+    position: relative; 
+    width: 200px;
+    height: 200px;
+}
+
+.Weather-vane {
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    display: block;
+    width: 200px;
+    height: 200px;
+    z-index: 0;
+}
+
+.arrow {  
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    display: block;
+    width: 200px;
+    height: 200px;
+    transform: rotate(0deg);
+    z-index: 1;
+
 }
 
 .warning {
@@ -140,7 +175,7 @@ button:hover {
 }
 
 .button-more-data {
-    margin-bottom: 120px;
+    margin-bottom: 80px;
 }
 
 .active {
