@@ -1,4 +1,10 @@
 # Weather APP
+![Weather_App](App_gif.gif)
+
+
+
+
+
 
 ## Description 
 
@@ -23,4 +29,4 @@ API_KEY=...................;
 - Google fonts https://fonts.google.com/
 - fontawesome https://fontawesome.com
 
-![Weather APP](chrome_app.png)
+
